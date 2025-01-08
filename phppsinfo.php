@@ -337,7 +337,7 @@ class PhpPsInfo
     {
         $data = [];
         foreach ($this->requirements['directories'] as $directory) {
-            $directoryPath = getcwd() . DIRECTORY_SEPARATOR . trim($directory, '\\/');
+            $directoryPath = dirname(getcwd()) . DIRECTORY_SEPARATOR . trim($directory, '\\/');
             $data[$directory] = file_exists($directoryPath) ? [is_writable($directoryPath)] : [null];
         }
 
